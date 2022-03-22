@@ -13,7 +13,7 @@ const MailAPI = sequelize.define("MailAPI", {
   validIP: {
       type: Sequelize.STRING(50),
     //   allowNull: false,
-      unique:true
+      unique:true 
   },
   apiKey: {
     type: Sequelize.CHAR(36),

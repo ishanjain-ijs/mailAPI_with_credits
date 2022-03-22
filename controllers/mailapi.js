@@ -1,10 +1,11 @@
 // const db = require('../models/index')
-
+const requestIp = require('request-ip');
 const MailAPI = require('../models/mailapi')
 const nodemailer = require('nodemailer')
 const createMail = async(req, res, next) => {
     try{
-        const {id,  credits, validIP,  apiKey} = req.body;
+        const {id,  credits,   apiKey} = req.body;
+        const validIP = requestIp.getClientIp(req)
         const data = {id, credits, validIP,  apiKey}
         const create = await MailAPI.create(data)
         const apiID = create.id
